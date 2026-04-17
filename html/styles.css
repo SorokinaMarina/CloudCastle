@@ -33,18 +33,11 @@
 
 /*
 //-----------------------------------------
-// Scaffolding
-//-----------------------------------------
-*/
-
-/*
-//-----------------------------------------
 // Styles
 //-----------------------------------------
 */
 
 body {
-  width: 100%;
   margin: 0;
   padding: 0;
   font: 300 20px/1.16 "Inter";
@@ -54,14 +47,10 @@ body {
   box-sizing: border-box;
 }
 
-p b {
-  font-weight: 400;
-}
-
 .container {
   margin: 82px auto 93px;
-  padding: 0 28px;
-  max-width: 1920px;
+  width: 97%;
+  box-sizing: border-box;
 }
 
 .description {
@@ -74,7 +63,7 @@ p b {
 .list {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(4, 24%);
+  grid-template-columns: repeat(4, 1fr);
   grid-auto-rows: 259px;
   grid-template-areas:
     "blade shield . charm"
@@ -89,7 +78,6 @@ p b {
 .item {
   display: flex;
   padding: 0;
-  min-height: 259px;
 }
 
 .item--blade {
@@ -131,8 +119,6 @@ p b {
   justify-content: space-between;
   text-align: left;
   width: 100%;
-  min-height: 184px;
-  height: 100%;
   margin: 0;
   padding: 0;
   font-weight: normal;
@@ -165,24 +151,23 @@ p b {
   justify-content: space-between;
 }
 
-.top-text {
+.text {
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 5px;
-  margin: 5% 0 0 5%;
   color: #fff;
   text-align: center;
+  width: fit-content;
+}
+
+.text--top {
+  margin: 5% 0 0 5%;
   font-weight: 700;
   font-size: 36px;
   letter-spacing: -5%;
-  width: fit-content;
   padding: 3px 13px;
 }
 
-.bottom-text {
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 5px;
-  text-align: center;
-  color: #fff;
+.text--bottom {
   font-size: 24px;
   font-weight: 400;
   letter-spacing: -7%;
@@ -206,6 +191,7 @@ p b {
 .params_description {
   width: 50%;
   font-size: 24px;
+  letter-spacing: 1px;
 }
 
 .params_type {
@@ -213,10 +199,13 @@ p b {
   font-size: 24px;
   text-align: right;
   color: #219653;
+  letter-spacing: 1px;
 }
 
 .triangle {
   background-image: url("./images/Vector.svg");
+  background-position: center;
+  background-size: cover;
   width: 48px;
   height: 48px;
   position: absolute;
@@ -226,6 +215,8 @@ p b {
 
 .icons {
   background-image: url(./images/frame.svg);
+  background-position: center;
+  background-size: cover;
   width: 37px;
   height: 160px;
   position: absolute;
@@ -260,129 +251,196 @@ p b {
   display: block;
 }
 
-/* @media (min-width: 1920px) {
-
-  .item {
-    width: 25%;
-  }
-
-  .item:nth-child(6n + 2) {
-    margin-right: 25%;
-  }
-
-  .item:nth-child(6n + 4) {
-    margin-left: 25%;
-  }
-
-  .item:nth-child(6n + 5) {
-    margin-right: 25%;
-  }
-
-  .button {
-    padding: 21px 29px;
-  }
-
-  .title {
-    font-size: 36px;
-  }
-
-  .params {
-    font-size: 24px;
-  }
-}
-
-@media (min-width: 1440px) {
-  body {
-    font-size: 35px;
-  }
-
+@media (max-width: 1440px) {
   .container {
-    max-width: 1440px;
-    width: 100%;
-    padding: 46px 28px;
+    margin: 46px auto 54px;
   }
 
   .description {
-    margin: 0 0 72px;
-    text-indent: 475px;
+    font-weight: 300;
+    font-size: 35px;
+    text-indent: 480px;
+    margin-bottom: 72px;
   }
 
-  .item {
-    width: calc(100% / 3);
-  }
-
-  .button {
-    padding: 22px 29px;
+  .list {
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 259px;
+    grid-template-areas:
+    "blade shield ."
+    "charm raincoat potion"
+    ". crystal hatchet"
+    "summary . .";
   }
 
   .title {
     font-size: 32px;
-  }
-
-  .params {
-    font-size: 20px;
+    padding-left: 7%;
+    width: 70%;
+    letter-spacing: 1px;
   }
 
   .check {
-    top: 15px;
-    right: 15px;
-
-    width: 49px;
-    height: 49px;
+    right: 13px;
   }
 
-  .check svg {
-    width: 24px;
-    height: 15px;
+  .params {
+    padding: 0 7% 5%;
+  }
+
+  .params_description {
+    font-size: 20px;
+  }
+
+  .params_type {
+    font-size: 20px;
+  }
+
+  .text--top {
+    font-size: 32px;
+    margin: 4% 0 0 4%;
+  }
+
+  .text--bottom {
+    font-size: 20px;
+    margin-left: 4%;
+  }
+
+  .icons {
+    width: 32px;
+    height: 140px;
+    top: 57px;
+    right: 21px;
+  }
+
+  .triangle {
+    width: 45px;
+    height: 45px;
   }
 }
 
-@media (min-width: 786px) {
-  body {
-    font-size: 23px;
-  }
-}
+@media (max-width: 950px) {
 
-@media (min-width: 768px) {
+  .list {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 200px;
+    grid-template-areas:
+    "blade shield"
+    "charm ."
+    "raincoat potion"
+    ". crystal"
+    "hatchet summary";
+  }
+
   .container {
-    max-width: 768px;
-    padding: 49px 28px;
+    width: 93%;
   }
 
   .description {
-    margin: 0 0 55px;
-    text-indent: 310px;
-  }
-
-  .list {
-    margin: -6px;
-  }
-
-  .item {
-    padding: 6px;
-  }
-
-  .button {
-    height: 200px;
-    padding: 17px 22px 18px;
+    font-size: 23px;
+    text-indent: 307px;
+    margin-bottom: 56px;
   }
 
   .title {
     font-size: 21px;
-  }
-
-  .params {
-    font-size: 18px;
+    padding-top: 5%;
   }
 
   .check {
+    width: 35px;
+    height: 35px;
+    right: 9px;
     top: 9px;
+  }
+
+  .params_description {
+    font-size: 18px;
+  }
+
+  .params_type {
+    font-size: 18px;
+  }
+
+  .text--top {
+    font-size: 21px;
+  }
+
+  .text--bottom {
+    font-size: 18px;
+  }
+
+  .triangle {
+    width: 36px;
+    height: 36px;
+  }
+
+  .icons {
+    top: 42px;
+    right: 16px;
+    width: 24px;
+    height: 108px;
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .container {
+    margin-top: 54px;
+    margin-bottom: 26px;
+    width: 85%;
+  }
+
+  .list {
+    grid: none;
+    grid-template-areas: none;
+    row-gap: 8px;
+  }
+  
+  .item {
+    grid-area: auto;
+    min-height: 184px;
+  }
+
+  .description {
+    font-size: 20px;
+    text-indent: 60px;
+    line-height: 23px;
+  }
+
+  .title {
+    font-size: 18px;
+  }
+
+  .params_description {
+    font-size: 17px;
+  }
+
+  .params_type {
+    font-size: 17px;
+  }
+
+  .text--top {
+    font-size: 18px;
+    margin-left: 1%;
+  }
+
+  .text--bottom {
+    font-size: 18px;
+    margin-left: 3%;
+    margin-bottom: 1%;
+  }
+
+  .triangle {
+    width: 32px;
+    height: 32px;
+  }
+
+  .icons {
+    width: 20px;
+    height: 92px;
+    top: 43px;
     right: 9px;
   }
 }
-
-@media (min-width: 576px) {
-  .item {
-    width: 50%;
-  }
-} */
