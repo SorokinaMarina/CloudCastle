@@ -37,10 +37,14 @@
 //-----------------------------------------
 */
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
-  font: 300 20px/1.16 "Inter";
+  font: 300 20px/1.16 "Inter", sans-serif;;
   color: #000;
   background: #fff;
   -webkit-text-size-adjust: 100%;
@@ -125,6 +129,7 @@ body {
   border-radius: 0;
   border: 1px solid #c4c4c4;
   background-color: #fff;
+  -webkit-appearance: none;
   appearance: none;
   cursor: pointer;
   outline: none;
@@ -160,7 +165,7 @@ body {
 }
 
 .text--top {
-  margin: 5% 0 0 5%;
+  margin: 4% 0 0 3%;
   font-weight: 700;
   font-size: 36px;
   letter-spacing: -5%;
@@ -171,7 +176,7 @@ body {
   font-size: 24px;
   font-weight: 400;
   letter-spacing: -7%;
-  margin: 0 0 2% 7%;
+  margin: 0 0 2% 4%;
   width: fit-content;
   padding: 10px 8px 10px 7px;
 }
@@ -181,7 +186,7 @@ body {
 }
 
 .params {
-  padding: 0 8% 4%;
+  padding: 0 6% 4%;
   display: flex;
   align-items: flex-end;
   font-size: 17px;
@@ -221,7 +226,7 @@ body {
   height: 160px;
   position: absolute;
   top: 50px;
-  right: 23px;
+  right: 18px;
 }
 
 .check {
@@ -276,7 +281,7 @@ body {
   .title {
     font-size: 32px;
     padding-left: 7%;
-    width: 70%;
+    width: 75%;
     letter-spacing: 1px;
   }
 
@@ -298,19 +303,18 @@ body {
 
   .text--top {
     font-size: 32px;
-    margin: 4% 0 0 4%;
+    margin-left: 4%;
   }
 
   .text--bottom {
     font-size: 20px;
-    margin-left: 4%;
   }
 
   .icons {
     width: 32px;
     height: 140px;
     top: 57px;
-    right: 21px;
+    right: 17px;
   }
 
   .triangle {
@@ -364,6 +368,7 @@ body {
 
   .text--top {
     font-size: 21px;
+    margin-left: 2%;
   }
 
   .text--bottom {
