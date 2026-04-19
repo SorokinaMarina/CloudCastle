@@ -1,39 +1,20 @@
 const MAX_ITEMS = 4;
 
 const itemButtons = document.querySelectorAll('.button');
-let currentItemsNumber = 0;
 
-function onButtonClick(i) {
-  return () => {
-    if (itemButtons[i].classList.contains('button--active')) {
-      itemButtons[i].classList.remove('button--active');
-      currentItemsNumber = currentItemsNumber - 1;
-      if (currentItemsNumber === MAX_ITEMS) {
-        itemButtons.forEach(item => {
-          if (!item.classList.contains('button--active')) {
-            item.setAttribute('disabled', '');
-          }
-        })
-      }
-    } else {
-      itemButtons.forEach(item => {
-        if (item.classList.contains('button--active')) {
-          item.classList.remove('button--active');
-        }
-      });
-      itemButtons[i].classList.add('button--active');
-      currentItemsNumber = currentItemsNumber + 1;
-      if (currentItemsNumber < MAX_ITEMS) {
-        itemButtons.forEach(item => {
-          if (!item.classList.contains('button--active')) {
-            item.removeAttribute('disabled');
-          }
-        })
-      }
+function updateState () {
+  const activeButton = document.querySelectorAll('.button--active').length;
+
+  itemButtons.forEach(button => {
+    if (!button.classList.contains('button--active')) {
+      button.disabled = activeButton >= MAX_ITEMS
     }
-  }
+  })
 }
 
-for (let i = 0; i < itemButtons.length; i++) {
-  itemButtons[i].addEventListener('click', onButtonClick(i));
-}
+itemButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    button.classList.toggle('button--active');
+    updateState()
+  })
+})
